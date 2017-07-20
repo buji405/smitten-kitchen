@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 
-class extends RecipeList from Component {
-  contructor () {
+
+class RecipeList extends Component {
+  constructor () {
     super ()
-    this.state ={
+    this.state = {
 
     }
   }
@@ -11,8 +12,13 @@ class extends RecipeList from Component {
   render () {
     return (
       <section className="recipe-list">
-        <p>Recipes</p>
+        <div>Chicken</div>
+        <div>Pork</div>
+        <div>Beef</div>
+        <div>Mexican</div>
       </section>
     )
   }
 }
+
+export default RecipeList

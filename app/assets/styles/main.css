@@ -82,3 +82,28 @@ button {
   opacity: 0.6;
   border-radius: 2px;
 }
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: red;
+  height: 200px;
+  width: 350px;
+  border-radius: 5px;
+}
+
+.email-input,
+.password-input {
+  width: 200px;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.login-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

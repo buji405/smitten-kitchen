@@ -9,14 +9,17 @@ class Login extends Component {
   }
 render () {
   return (
-    <div>
-      <input type="email"
-            className="email-input"
-            placeholder="email"/>
-      <input type="password"
-             className="password-input"
-             placeholder="password"/>
-    </div>
+    <section className="login-screen">
+      <div className="login-container">
+        <input type="email"
+              className="email-input"
+              placeholder="email"/>
+        <input type="password"
+               className="password-input"
+               placeholder="password"/>
+        <button>Submit</button>
+      </div>
+    </section>
   )
 }
 
