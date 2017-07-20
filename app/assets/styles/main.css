@@ -1,7 +1,13 @@
+@font-face {
+  font-family: bradley;
+  src: url('../../assets/bradley.ttf');
+}
+
 body {
-  background: #f4f4f4;
+  background: #fff;
   font-family: sans-serif;
   font-weight: 100;
+  margin: 0px;
 }
 
 #main h1 {
@@ -14,4 +20,65 @@ body {
 
 #main {
   text-align: center;
+}
+
+.welcome-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  color: #F89A00;
+}
+
+.top-container {
+  height: 25vh;
+}
+
+.logo {
+  font-family: bradley;
+  font-size: 35px;
+  font-weight: bold;
+  margin: 0px;
+}
+
+.welcome {
+  font-size: 24px;
+  margin: 0px;
+}
+
+.nav-container {
+  width: 90%;
+  padding: 30px;
+}
+
+.line-break {
+  border: solid .5px #000;
+  width: 96%;
+  margin: 0 auto;
+}
+
+button {
+  margin: 0 15px;
+  cursor: pointer;
+}
+
+.home-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: pink;
+  height: 75vh;
+  background-image: url("https://image.freepik.com/free-photo/food-organic-vegetable-colorful-background-tasty-fresh-carrots-on-wooden-table-top-view-with-copy-space-healthy-life-concept_1220-1217.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.search {
+  font-size: 20px;
+  padding-left: 5px;
+  width: 250px;
+  border: none;
+  height: 30px;
+  opacity: 0.6;
+  border-radius: 2px;
 }

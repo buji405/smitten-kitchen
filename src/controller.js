@@ -1,11 +1,14 @@
 const request = require('request')
-const API_KEY ='fcbb157c2af9eb55f740667b628bd981';
-const BASE_URL = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=500&type=restaurant&keyword=cruise&key=${API_KEY}`
+const API_KEY ='b6979b48a1617794d1e19b0c4a7639a0';
+const BASE_URL = `http://food2fork.com/api/search`
 
 function getPlaces(req, res, next) {
   request(BASE_URL, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       res.send(body)
+    }
+    else {
+      console.log(error)
     }
   })
 }
