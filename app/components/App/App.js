@@ -30,7 +30,6 @@ class App extends Component {
             <Route path="/login" component={loginContainer} />
             <Route path="/recipes" component={recipeListContainer} />
             <Route path="/directions" component={recipeContainer} />
-
           </section>
         </Router>
       </div>

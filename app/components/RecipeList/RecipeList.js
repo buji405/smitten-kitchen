@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { recipeFetchData } from '../../actions';
 
 class RecipeList extends Component {
   constructor () {
@@ -7,6 +7,10 @@ class RecipeList extends Component {
     this.state = {
 
     }
+  }
+
+  componentDidMount() {
+    this.props.fetchData(`https://food2fork.com/api/search?key=b6979b48a1617794d1e19b0c4a7639a0&q=shredded%20chicken`)
   }
 
   render () {
