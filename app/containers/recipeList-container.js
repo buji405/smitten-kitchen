@@ -2,6 +2,11 @@ import { connect } from 'react-redux'
 import RecipeList from '../components/RecipeList/RecipeList';
 import { recipeFetchData } from '../actions';
 
+const mapStateToProps = (state) => {
+  return {
+    recipes: state.items
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -9,6 +14,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-
-
-export default connect(null, mapDispatchToProps)(RecipeList)
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeList)

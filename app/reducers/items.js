@@ -1,10 +1,8 @@
-export function items(state = [], action) {
-
+export const items = (state = [], action) => {
   switch (action.type) {
-    console.log(action);
     case 'ITEMS_FETCH_DATA_SUCCESS':
-
-    console.log('recipes from actions', action.recipes)
+    console.log('action', action.recipes);
+    return action.recipes
   default:
     return state;
   }

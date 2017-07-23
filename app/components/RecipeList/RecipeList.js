@@ -9,17 +9,23 @@ class RecipeList extends Component {
     }
   }
 
-  componentDidMount() {
-    this.props.fetchData(`https://food2fork.com/api/search?key=b6979b48a1617794d1e19b0c4a7639a0&q=shredded%20chicken`)
+  getDirections(e) {
+    console.log('works');
+    this.props.history.push('/directions')
   }
 
   render () {
+    console.log('props',this.props.recipes);
+    const recipeTitle = this.props.recipes.map((recipe, index)=> {
+      const key = index
+      return <button key={key}
+                     className="recipe-title"
+                     onClick={(e) => this.getDirections(e)}>{recipe.title}</button>
+    })
+
     return (
       <section className="recipe-list">
-        <div>Chicken</div>
-        <div>Pork</div>
-        <div>Beef</div>
-        <div>Mexican</div>
+        {recipeTitle}
       </section>
     )
   }

@@ -66,7 +66,6 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: pink;
   height: 75vh;
   background-image: url("https://image.freepik.com/free-photo/food-organic-vegetable-colorful-background-tasty-fresh-carrots-on-wooden-table-top-view-with-copy-space-healthy-life-concept_1220-1217.jpg");
   background-repeat: no-repeat;
@@ -81,6 +80,7 @@ button {
   height: 30px;
   opacity: 0.6;
   border-radius: 2px;
+  outline: none;
 }
 
 .login-container {
@@ -106,4 +106,36 @@ button {
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.nav-links {
+  text-decoration: none;
+  font-weight: bold;
+  color: #F89A00;
+  font-size: 20px;
+  transition-duration: .2s;
+
+}
+
+.nav-links:hover {
+  font-size: 22px;
+  transition-duration: .2s;
+}
+
+.recipe-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.recipe-title {
+border: 1px dotted blue;
+margin-bottom: 12px;
+font-size: 18px;
+border: none;
+width: 500px;
+background: #fff;
+outline: none;
 }
