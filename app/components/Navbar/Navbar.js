@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 
 const Navbar = () => {
@@ -10,10 +11,15 @@ const Navbar = () => {
       </div>
       <div className="line-break"></div>
       <div className="nav-container">
-        <button>Search</button>
+        <NavLink to='/'
+                  activeClassName='selected'
+                  className='nav-links'>Search</NavLink>
         <button>Whats in my fridge?</button>
         <button>Saved Recipes</button>
-        <button>About</button>
+        <NavLink to='/about'
+                 activeClassName='selected'
+                 className='nav-links'>About</NavLink>
+
       </div>
     </section>
   )
