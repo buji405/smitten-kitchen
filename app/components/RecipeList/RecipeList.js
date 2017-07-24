@@ -11,8 +11,10 @@ class RecipeList extends Component {
 
   getDirections(e) {
     console.log('works');
-    this.props.history.push('/directions')
+    this.props.history.push(`/directions/${e.target.value}`)
   }
+
+  
 
   render () {
     console.log('props',this.props.recipes);
@@ -20,8 +22,11 @@ class RecipeList extends Component {
       const key = index
       return <button key={key}
                      className="recipe-title"
+                     value={recipe.id}
                      onClick={(e) => this.getDirections(e)}>{recipe.title}</button>
     })
+
+
 
     return (
       <section className="recipe-list">

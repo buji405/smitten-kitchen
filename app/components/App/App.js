@@ -8,7 +8,7 @@ import recipeListContainer from '../../containers/recipeList-container'
 import Search from '../../components/Search/Search'
 import recipeContainer from '../../containers/recipe-container'
 import About from '../../components/About/About'
-
+import fridgeContainer from '../../containers/fridge-container'
 import Login from '../../components/Login/Login'
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router-dom';
@@ -30,7 +30,7 @@ class App extends Component {
             <Route exact path="/" component={searchContainer} />
             <Route path="/login" component={loginContainer} />
             <Route path="/recipes" component={recipeListContainer} />
-            <Route path="/directions" component={recipeContainer} />
+            <Route path="/directions/:id" component={recipeContainer} />
             <Route path="/about" component={About} />
           </section>
         </Router>

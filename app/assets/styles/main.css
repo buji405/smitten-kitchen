@@ -114,7 +114,7 @@ button {
   color: #F89A00;
   font-size: 20px;
   transition-duration: .2s;
-
+  margin-right: 20px;
 }
 
 .nav-links:hover {
@@ -138,4 +138,8 @@ border: none;
 width: 500px;
 background: #fff;
 outline: none;
+}
+
+.dish-pic {
+  border-radius: 5px;
 }
