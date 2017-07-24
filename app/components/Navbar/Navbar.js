@@ -14,7 +14,10 @@ const Navbar = () => {
         <NavLink to='/'
                   activeClassName='selected'
                   className='nav-links'>Search</NavLink>
-        <button>Whats in my fridge?</button>
+        <NavLink to='/fridge'
+                  activeClassName='selected'
+                  className="nav-links"
+                  >Whats in my fridge?</NavLink>
         <button>Saved Recipes</button>
         <NavLink to='/about'
                  activeClassName='selected'
