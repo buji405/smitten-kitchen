@@ -21,9 +21,16 @@ export const instructions = (array) => {
 
 export const ingredients = (ingredient) => {
   return {
-    type: 'INGREDIENTS',
+    type: 'FRIDGE_INGREDIENTS',
     ingredient
   }
+}
+
+export const recipeIngredients = (ingredientAmt) => {
+   return {
+     type: 'RECIPE_INGREDIENTS',
+     ingredientAmt
+   }
 }
 
 export const recipeFetchData = (string) => {
@@ -64,8 +71,9 @@ export const getInstructions = (id) => {
     .then((directions) => {
       console.log('directions', directions);
 
-
+      const recipeIngredient = directions.extendedIngredients.map((food) => food.originalString);
       dispatch(instructions(directions.instructions))
+      dispatch(recipeIngredients(recipeIngredient))
     })
     .catch((error) => {
       dispatch(itemsHasErrored(true))

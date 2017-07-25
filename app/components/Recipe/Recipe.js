@@ -4,7 +4,8 @@ class Recipe extends Component{
    constructor() {
      super()
      this.state={
-       instructions: ''
+       instructions: '',
+       ingredients: ''
      }
    }
 
@@ -18,13 +19,17 @@ class Recipe extends Component{
   }
 
   render () {
-    console.log('props in recipe',this.props);
+    console.log('props in recipe',this.props.ingredients);
     const { recipes, match: {params: { id } } } = this.props;
     const recipe = recipes.find(rec => rec.id === parseInt(id));
     const instructions = this.props.instructions.split('.').map((sentence, index) => {
       return <li key={index} className="sentence">{sentence}</li>
-
+  })
+    const ingredients = this.props.ingredients.map((amount, index) => {
+      return <li key={index}>{amount}</li>
     })
+
+
     return (
       <section>
         <div className="top-section">
@@ -39,6 +44,8 @@ class Recipe extends Component{
           </div>
         </div>
         <section className="direction-section">
+          <div className="ingredient-info">Ingredients</div>
+          <div className="amount">{ingredients}</div>
           <div className="info">Directions</div>
           <ol className="instructions">{instructions}</ol>
         </section>

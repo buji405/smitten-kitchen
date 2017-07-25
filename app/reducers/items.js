@@ -21,9 +21,19 @@ export const directions = (state = '', action) => {
 
 export const displayIngredients = (state = [], action) => {
   switch (action.type) {
-    case 'INGREDIENTS':
+    case 'FRIDGE_INGREDIENTS':
     console.log("ingredient action", action.ingredient);
     return [...state, action.ingredient]
+  default:
+    return state
+  }
+}
+
+export const recipeIngredient = (state=[], action) => {
+  switch(action.type) {
+    case 'RECIPE_INGREDIENTS':
+    console.log('recipe ingredients', action.ingredientAmt);
+    return action.ingredientAmt
   default:
     return state
   }
