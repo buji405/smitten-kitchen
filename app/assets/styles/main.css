@@ -143,3 +143,59 @@ outline: none;
 .dish-pic {
   border-radius: 5px;
 }
+
+.instructions {
+  width: 90%;
+  margin: 20px 0 20px 25px;
+  /*margin-left: 25px*/
+}
+
+.info {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 32px;
+  color: #3f3c3a;
+}
+
+.mins {
+  color: #369ec4;
+}
+
+.sentence {
+  padding: 5px 10px;
+  text-align: left;
+}
+
+.direction-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.print-btn,
+.save-btn {
+  height: 40px;
+  width: 100px;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+}
+
+.print-btn {
+  background-color: #f89a00;
+}
+
+.save-btn {
+  background-color: #369ec4;
+}

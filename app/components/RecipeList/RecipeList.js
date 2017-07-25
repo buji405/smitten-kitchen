@@ -14,7 +14,6 @@ class RecipeList extends Component {
     this.props.history.push(`/directions/${e.target.value}`)
   }
 
-  
 
   render () {
     console.log('props',this.props.recipes);
