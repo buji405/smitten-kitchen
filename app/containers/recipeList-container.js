@@ -12,6 +12,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchData: (url) => dispatch(recipeFetchData(url))
   }
-}
+} 
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecipeList)
