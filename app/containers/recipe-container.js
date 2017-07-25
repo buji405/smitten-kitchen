@@ -6,7 +6,8 @@ import { getInstructions } from '../actions';
 const mapStateToProps = (state) => {
   return {
     recipes: state.items,
-    instructions: state.directions
+    instructions: state.directions,
+    ingredients: state.recipeIngredient
   }
 }
 
