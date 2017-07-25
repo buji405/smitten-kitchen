@@ -31,6 +31,7 @@ class App extends Component {
             <Route path="/login" component={loginContainer} />
             <Route path="/recipes" component={recipeListContainer} />
             <Route path="/directions/:id" component={recipeContainer} />
+            <Route path="/fridge" component={fridgeContainer} />
             <Route path="/about" component={About} />
           </section>
         </Router>

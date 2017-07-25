@@ -14,7 +14,6 @@ class RecipeList extends Component {
     this.props.history.push(`/directions/${e.target.value}`)
   }
 
-
   render () {
     console.log('props',this.props.recipes);
     const recipeTitle = this.props.recipes.map((recipe, index)=> {
@@ -24,7 +23,6 @@ class RecipeList extends Component {
                      value={recipe.id}
                      onClick={(e) => this.getDirections(e)}>{recipe.title}</button>
     })
-
 
 
     return (

@@ -8,31 +8,20 @@ class Recipe extends Component{
      }
    }
 
-   componentDidMount() {
-      const {id} = this.props.match.params
-     fetch(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${id}/information`, {
-       method: 'GET',
-       headers: {
-         "X-Mashape-Key": "x7aydGC6ATmsh20puvCF2PTJJKUYp1biVP5jsnspn4jyzfklP1",
-         "Content-Type": "application/json",
-         "Accept": "application/json"
-       }
-     })
-      .then((data) => data.json())
-      .then((directions) => {
-
-        this.setState({instructions: directions.instructions})
-      } )
-   }
-
   print() {
     window.print()
   }
 
+  componentDidMount() {
+    const {id} = this.props.match.params
+    this.props.getDirections(id)
+  }
+
   render () {
+    console.log('props in recipe',this.props);
     const { recipes, match: {params: { id } } } = this.props;
     const recipe = recipes.find(rec => rec.id === parseInt(id));
-    const instructions = this.state.instructions.split('.').map((sentence, index) => {
+    const instructions = this.props.instructions.split('.').map((sentence, index) => {
       return <li key={index} className="sentence">{sentence}</li>
 
     })
@@ -46,7 +35,7 @@ class Recipe extends Component{
           </div>
           <div className="right-container">
             <button className="print-btn" onClick={() => this.print()}>Print</button>
-            <button className="save-btn" onClick={() => this.print()}>Save</button>
+            <button className="save-btn">Save</button>
           </div>
         </div>
         <section className="direction-section">

@@ -5,11 +5,17 @@ import { getInstructions } from '../actions';
 
 const mapStateToProps = (state) => {
   return {
-    recipes: state.items
+    recipes: state.items,
+    instructions: state.directions
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getDirections: (url) => dispatch(getInstructions(url))
   }
 }
 
 
 
-
-export default connect(mapStateToProps, null)(Recipe)
+export default connect(mapStateToProps, mapDispatchToProps)(Recipe)
