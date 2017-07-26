@@ -37,7 +37,7 @@ delete(id) {
         <h2>Add ingredients you'd like you use below</h2>
         <input type='text'
                className="inputIngredients"
-               placeholder="Search Ingredients"
+               placeholder="Ingredients"
                value={this.state.ingredientInput}
                onChange={(e) => this.setState({ingredientInput: e.target.value})}/>
              <button className="add" onClick={() => this.addIngredient()}>Add</button>

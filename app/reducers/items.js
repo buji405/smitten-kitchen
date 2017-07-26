@@ -18,6 +18,16 @@ export const directions = (state = '', action) => {
   }
 }
 
+export const isLoading = (state = false, action) => {
+  switch(action.type) {
+    case 'LOADING':
+    console.log(action.isLoading);
+    return action.isLoading
+   default:
+    return state
+  }
+}
+
 
 export const displayIngredients = (state = [], action) => {
   switch (action.type) {

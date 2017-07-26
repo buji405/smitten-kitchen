@@ -281,3 +281,8 @@ outline: none;
   border-radius: 2px;
   width: 100px;
 }
+
+.loading {
+  font-family: 'Homemade Apple', cursive;
+  font-size: 30px;
+}
