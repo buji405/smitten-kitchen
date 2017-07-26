@@ -145,8 +145,8 @@ outline: none;
 }
 
 .instructions {
-  width: 90%;
-  margin: 20px 0 20px 25px;
+  width: 63%;
+  margin: 20px auto;
 }
 
 .info {
@@ -156,9 +156,13 @@ outline: none;
 }
 
 .ingredient-info {
-  margin-bottom: 20px;
+  margin: 20px 0;
   font-weight: bold;
   font-size: 20px;
+}
+
+.ingredient-amount {
+  padding-bottom: 5px;
 }
 
 .name {
@@ -172,7 +176,7 @@ outline: none;
 }
 
 .sentence {
-  padding: 5px 10px;
+  margin: 10px;
   text-align: left;
 }
 
@@ -205,8 +209,25 @@ outline: none;
   background-color: #369ec4;
 }
 
-.amount,
-.ingredient-info {
-  text-align:left;
-  margin-left: 30px;
+.amount {
+  text-align: left;
+  margin: 0 auto;
+  width: 63%;
+}
+
+.about-section {
+  background: #ea8857;
+  width: 100%;
+  height: 100vh;
+  padding-top: 90px;
+}
+
+.about-blurb {
+  font-size: 30px;
+  padding: 10px;
+  width: 80%;
+  margin: 0 auto;
+  background: #fff;
+  opacity: .7;
+  border-radius: 5px;
 }

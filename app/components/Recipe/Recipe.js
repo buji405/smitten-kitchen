@@ -26,7 +26,7 @@ class Recipe extends Component{
       return <li key={index} className="sentence">{sentence}</li>
   })
     const ingredients = this.props.ingredients.map((amount, index) => {
-      return <li key={index}>{amount}</li>
+      return <li className="ingredient-amount" key={index}>{amount}</li>
     })
 
 
@@ -45,7 +45,7 @@ class Recipe extends Component{
         </div>
         <section className="direction-section">
           <div className="ingredient-info">Ingredients</div>
-          <div className="amount">{ingredients}</div>
+          <ul className="amount">{ingredients}</ul>
           <div className="info">Directions</div>
           <ol className="instructions">{instructions}</ol>
         </section>
