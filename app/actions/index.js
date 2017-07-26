@@ -12,6 +12,13 @@ export const itemsHasErrored = (bool) => {
   };
 }
 
+export const loading = (bool) => {
+  return {
+    type: 'LOADING',
+    isLoading: bool
+  }
+}
+
 export const instructions = (array) => {
   return {
     type: 'INSTRUCTIONS',
@@ -36,6 +43,8 @@ export const recipeIngredients = (ingredientAmt) => {
 export const recipeFetchData = (string) => {
   console.log('string', string);
   return (dispatch) => {
+    dispatch(loading(true))
+
     fetch(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?number=15&instructionsRequired=true&query=${string}`, {
       method: 'GET',
       headers: {
@@ -48,6 +57,10 @@ export const recipeFetchData = (string) => {
       .then((recipes) => {
         console.log('recipe results', recipes.results)
         dispatch(itemsFetchDataSuccess(recipes.results))
+        setTimeout(() => {
+          dispatch(loading(false))
+
+        }, 2000)
       })
       .catch((error) => {
         dispatch(itemsHasErrored(true))
@@ -69,7 +82,8 @@ export const getInstructions = (id) => {
     })
     .then((data) => data.json())
     .then((directions) => {
-      console.log('directions', directions);
+      console.log('directions num', directions.analyzedInstructions.map((thing) => thing.steps.map((obj) =>obj.number)));
+      console.log('step', directions.analyzedInstructions.map((thing) => thing.steps.map((obj) =>obj.steps)));
 
       const recipeIngredient = directions.extendedIngredients.map((food) => food.originalString);
       dispatch(instructions(directions.instructions))

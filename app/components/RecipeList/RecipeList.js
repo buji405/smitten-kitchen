@@ -15,7 +15,15 @@ class RecipeList extends Component {
   }
 
   render () {
-    console.log('props',this.props.recipes);
+    console.log('props',this.props);
+    if(this.props.loading) {
+        return(
+          <div>
+            <p className="loading">Loading...</p>
+            <iframe src="https://giphy.com/embed/hh2haXyOKhScE" width="480" height="370" frameBorder="0" className="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/cook-hh2haXyOKhScE"></a></p>
+          </div>
+        )
+    }
     const recipeTitle = this.props.recipes.map((recipe, index)=> {
       const key = index
       return <button key={key}
@@ -23,6 +31,8 @@ class RecipeList extends Component {
                      value={recipe.id}
                      onClick={(e) => this.getDirections(e)}>{recipe.title}</button>
     })
+
+
 
 
     return (
