@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 @font-face {
   font-family: bradley;
   src: url('../../assets/bradley.ttf');
@@ -230,4 +234,50 @@ outline: none;
   background: #fff;
   opacity: .7;
   border-radius: 5px;
+}
+
+.delete-btn {
+  float: right;
+  background-color: #ea2304;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  outline: none;
+}
+
+.ingredient-container {
+  margin: 20px auto;
+  width: 25%;
+  text-align: left;
+}
+
+.ingredient {
+  margin: 5px;
+}
+
+.inputIngredients {
+  height: 30px;
+  width: 140px;
+  font-size: 13px;
+  outline: none;
+}
+
+.add {
+  background-color: #0b8e1c;
+  color: #fff;
+  width: 45px;
+  height: 29px;
+  border: none;
+  border-radius: 2px;
+  font-size: 14px;
+}
+
+.submit {
+  background-color: #369ec4;
+  color: #fff;
+  height: 30px;
+  border: none;
+  font-size: 14px;
+  border-radius: 2px;
+  width: 100px;
 }

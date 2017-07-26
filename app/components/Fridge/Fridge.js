@@ -17,19 +17,35 @@ addIngredient() {
   this.props.displayIngredients(this.state.ingredientInput)
   this.setState({ingredientList: newIngredientList,
                 ingredientInput: ''})
+  document.querySelector('.inputIngredients').focus()
 }
+
+delete(id) {
+  console.log('hi');
+  if (this.state.ingredientList) {
+    const newArray = this.state.ingredientList.filter((item) => {
+      console.log(item);
+    })
+  }
+}
+
 
   render () {
 
     return (
       <section>
-        <h2>Type in ingredients below</h2>
+        <h2>Add ingredients you'd like you use below</h2>
         <input type='text'
-               placeholder="Add Ingredients"
+               className="inputIngredients"
+               placeholder="Search Ingredients"
                value={this.state.ingredientInput}
                onChange={(e) => this.setState({ingredientInput: e.target.value})}/>
-        <button onClick={() => {this.addIngredient()}}>Add</button>
-        <div>{this.state.ingredientList.map((item, index) => <li key={index}>{item}</li>)}</div>
+             <button className="add" onClick={() => this.addIngredient()}>Add</button>
+        <section className="ingredient-container">
+          <div>{this.state.ingredientList.map((item, index) => <li key={index} className="ingredient">{item}
+          <button className="delete-btn" onClick={() => this.delete()}>X</button></li>)}</div>
+        </section>
+        <button className="submit">Fetch Meals</button>
       </section>
     )
   }
