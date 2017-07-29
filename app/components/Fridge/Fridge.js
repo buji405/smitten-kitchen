@@ -9,7 +9,6 @@ class Fridge extends Component {
     }
   }
 
-
 addIngredient() {
   console.log('this on?');
   let newIngredientList = [...this.state.ingredientList, this.state.ingredientInput]
@@ -20,16 +19,16 @@ addIngredient() {
 }
 
 delete(item) {
-  // send to a delete action
-  // action goes to the reducer
-  // filter based off of the item
+  this.state.ingredientList.pop(item)
   this.props.deleteIngredient(item)
 }
 
-
 submit() {
-  console.log('submit fridge');
-  this.props.fetchIngredientRecipes(this.state.ingredientList)
+  const ingredients = this.state.ingredientList.map((ingredient) => {
+    return ingredient
+  })
+  console.log(this.state.ingredientList);
+  this.props.fetchIngredientRecipes(ingredients)
   document.querySelector('.prompt').innerText = 'Whatcha going to make?'
 }
 
@@ -41,6 +40,7 @@ submit() {
       return <button key={index}
                      className="fridge-results">{ingredient.title}</button>
     })
+
     return (
       <section>
         <h2>Add ingredients you'd like you use below</h2>
