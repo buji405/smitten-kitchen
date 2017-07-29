@@ -141,7 +141,16 @@ font-size: 18px;
 border: none;
 width: 500px;
 background: #fff;
+color: #369ec4;
 outline: none;
+transition-duration: .2s;
+
+}
+
+.recipe-title:hover {
+  color: #65aa05;
+  font-weight: bold;
+  transition-duration: .2s;
 }
 
 .dish-pic {
@@ -229,7 +238,7 @@ outline: none;
 .about-blurb {
   font-size: 30px;
   padding: 10px;
-  width: 80%;
+  width: 60%;
   margin: 0 auto;
   background: #fff;
   opacity: .7;

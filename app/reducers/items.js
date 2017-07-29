@@ -34,6 +34,10 @@ export const displayIngredients = (state = [], action) => {
     case 'FRIDGE_INGREDIENTS':
     console.log("ingredient action", action.ingredient);
     return [...state, action.ingredient]
+    case 'DELETE':
+    return state.filter((item) => {
+      return item !== action.item
+    })
   default:
     return state
   }
@@ -46,5 +50,14 @@ export const recipeIngredient = (state=[], action) => {
     return action.ingredientAmt
   default:
     return state
+  }
+}
+
+export const searchFridgeIngredients = (state=[], action) => {
+  switch(action.type) {
+    case 'SEARCH_FRIDGE':
+    return action.ingredients
+  default:
+  return state
   }
 }

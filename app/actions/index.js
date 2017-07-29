@@ -33,11 +33,25 @@ export const ingredients = (ingredient) => {
   }
 }
 
+export const searchFridge = (ingredients) => {
+  return {
+    type: 'SEARCH_FRIDGE',
+    ingredients
+  }
+}
+
 export const recipeIngredients = (ingredientAmt) => {
    return {
      type: 'RECIPE_INGREDIENTS',
      ingredientAmt
    }
+}
+
+export const deleteIngredient = (item) => {
+  return {
+    type: 'DELETE',
+    item
+  }
 }
 
 export const recipeFetchData = (string) => {
@@ -55,7 +69,6 @@ export const recipeFetchData = (string) => {
     })
       .then((response) => response.json())
       .then((recipes) => {
-        console.log('recipe results', recipes.results)
         dispatch(itemsFetchDataSuccess(recipes.results))
         setTimeout(() => {
           dispatch(loading(false))
@@ -82,9 +95,6 @@ export const getInstructions = (id) => {
     })
     .then((data) => data.json())
     .then((directions) => {
-      console.log('directions num', directions.analyzedInstructions.map((thing) => thing.steps.map((obj) =>obj.number)));
-      console.log('step', directions.analyzedInstructions.map((thing) => thing.steps.map((obj) =>obj.steps)));
-
       const recipeIngredient = directions.extendedIngredients.map((food) => food.originalString);
       dispatch(instructions(directions.instructions))
       dispatch(recipeIngredients(recipeIngredient))
@@ -93,5 +103,27 @@ export const getInstructions = (id) => {
       dispatch(itemsHasErrored(true))
       console.log(error, 'error fetching data');
     })
+  }
+}
+
+export const fridgeIngredientResults = () => {
+  return(dispatch) => {
+    fetch(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=apples%2Cflour%2Csugar&limitLicense=false&number=5&ranking=1`, {
+      method: 'GET',
+      headers: {
+        "X-Mashape-Key": "x7aydGC6ATmsh20puvCF2PTJJKUYp1biVP5jsnspn4jyzfklP1",
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      }
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('fridge data', data);
+        dispatch(searchFridge(data))
+      })
+      .catch((error)=> {
+        dispatch(itemHasErrored(true))
+        console.log(error, 'error fetching data');
+      })
   }
 }
