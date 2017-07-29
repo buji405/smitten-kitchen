@@ -10,11 +10,13 @@ class Search extends Component {
 
   submitSearch(e) {
     e.preventDefault()
-    this.props.fetchData(this.state.recipeSearch)
-    this.setState({
-      recipeSearch: ''
-    })
-    this.props.history.push('/recipes')
+    if (e.keyCode === 13) {
+      this.props.fetchData(this.state.recipeSearch)
+      this.setState({
+        recipeSearch: ''
+      })
+      this.props.history.push('/recipes')
+    }
   }
 
   render () {
@@ -25,8 +27,8 @@ class Search extends Component {
           value={this.state.recipeSearch}
           className="search"
           placeholder="search"
+          onKeyUp={(e) => this.submitSearch(e)}
           onChange={(e) => this.setState({recipeSearch: e.target.value})}/>
-        <button className="get-recipes" onClick={(e) => this.submitSearch(e)}>Get Recipes</button>
       </section>
     )
   }

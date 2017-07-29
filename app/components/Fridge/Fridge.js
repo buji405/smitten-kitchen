@@ -10,7 +10,6 @@ class Fridge extends Component {
   }
 
 
-
 addIngredient() {
   console.log('this on?');
   let newIngredientList = [...this.state.ingredientList, this.state.ingredientInput]
@@ -20,8 +19,11 @@ addIngredient() {
   document.querySelector('.inputIngredients').focus()
 }
 
-delete(id) {
-  console.log('hi');
+delete(item) {
+  // send to a delete action
+  // action goes to the reducer
+  // filter based off of the item
+  this.props.deleteIngredient(item)
   if (this.state.ingredientList) {
     const newArray = this.state.ingredientList.filter((item) => {
       console.log(item);
@@ -30,8 +32,13 @@ delete(id) {
 }
 
 
-  render () {
+submit() {
+  console.log('submit fridge');
+  this.props.fetchIngredientRecipes(this.state.ingredientList)
+}
 
+  render () {
+console.log('fridge props', this.props);
     return (
       <section>
         <h2>Add ingredients you'd like you use below</h2>
@@ -42,10 +49,10 @@ delete(id) {
                onChange={(e) => this.setState({ingredientInput: e.target.value})}/>
              <button className="add" onClick={() => this.addIngredient()}>Add</button>
         <section className="ingredient-container">
-          <div>{this.state.ingredientList.map((item, index) => <li key={index} className="ingredient">{item}
-          <button className="delete-btn" onClick={() => this.delete()}>X</button></li>)}</div>
+          <div>{this.props.ingredients.map((item, index) => <li key={index} className="ingredient">{item}
+          <button className="delete-btn" onClick={(e) => this.delete(item)}>X</button></li>)}</div>
         </section>
-        <button className="submit">Fetch Meals</button>
+        <button className="submit" onClick={() => this.submit()}>Fetch Meals</button>
       </section>
     )
   }
