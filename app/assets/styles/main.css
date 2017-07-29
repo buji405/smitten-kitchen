@@ -126,7 +126,8 @@ button {
   transition-duration: .2s;
 }
 
-.recipe-list {
+.recipe-list,
+.fridge-results-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -134,8 +135,18 @@ button {
   margin-top: 20px;
 }
 
-.recipe-title {
-border: 1px dotted blue;
+.fridge-results-container {
+  margin-top: 50px;
+}
+
+.prompt {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.recipe-title,
+.fridge-results {
 margin-bottom: 12px;
 font-size: 18px;
 border: none;
@@ -144,10 +155,10 @@ background: #fff;
 color: #369ec4;
 outline: none;
 transition-duration: .2s;
-
 }
 
-.recipe-title:hover {
+.recipe-title:hover,
+.fridge-results:hover {
   color: #65aa05;
   font-weight: bold;
   transition-duration: .2s;

@@ -24,21 +24,23 @@ delete(item) {
   // action goes to the reducer
   // filter based off of the item
   this.props.deleteIngredient(item)
-  if (this.state.ingredientList) {
-    const newArray = this.state.ingredientList.filter((item) => {
-      console.log(item);
-    })
-  }
 }
 
 
 submit() {
   console.log('submit fridge');
   this.props.fetchIngredientRecipes(this.state.ingredientList)
+  document.querySelector('.prompt').innerText = 'Whatcha going to make?'
 }
 
   render () {
-console.log('fridge props', this.props);
+    console.log('fridge props', this.props);
+
+
+    const title = this.props.fridgeIngredients.map((ingredient, index) => {
+      return <button key={index}
+                     className="fridge-results">{ingredient.title}</button>
+    })
     return (
       <section>
         <h2>Add ingredients you'd like you use below</h2>
@@ -53,10 +55,13 @@ console.log('fridge props', this.props);
           <button className="delete-btn" onClick={(e) => this.delete(item)}>X</button></li>)}</div>
         </section>
         <button className="submit" onClick={() => this.submit()}>Fetch Meals</button>
+        <section className="fridge-results-container">
+          <div className="prompt"></div>
+          {title}
+        </section>
       </section>
     )
   }
 }
-
 
 export default Fridge

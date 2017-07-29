@@ -1,10 +1,11 @@
 import { connect } from 'react-redux'
 import Fridge from '../components/Fridge/Fridge'
-import {ingredients, searchFridge, deleteIngredient} from '../actions'
+import {ingredients, searchFridge, deleteIngredient, fridgeIngredientResults} from '../actions'
 
 const mapStateToProps = (state) => {
   return {
-    ingredients: state.displayIngredients
+    ingredients: state.displayIngredients,
+    fridgeIngredients: state.searchFridgeIngredients
   }
 }
 
@@ -12,7 +13,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     deleteIngredient: (item) => dispatch(deleteIngredient(item)),
     displayIngredients: (item) => dispatch(ingredients(item)),
-    fetchIngredientRecipes: (ingredientList) => dispatch(searchFridge(ingredientList))
+    fetchIngredientRecipes: (ingredientList) => dispatch(fridgeIngredientResults(ingredientList)),
   }
 }
 
