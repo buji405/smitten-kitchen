@@ -28,7 +28,6 @@ export const isLoading = (state = false, action) => {
   }
 }
 
-
 export const displayIngredients = (state = [], action) => {
   switch (action.type) {
     case 'FRIDGE_INGREDIENTS':

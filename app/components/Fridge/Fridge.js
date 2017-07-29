@@ -9,7 +9,6 @@ class Fridge extends Component {
     }
   }
 
-
 addIngredient() {
   console.log('this on?');
   let newIngredientList = [...this.state.ingredientList, this.state.ingredientInput]
@@ -20,25 +19,35 @@ addIngredient() {
 }
 
 delete(item) {
-  // send to a delete action
-  // action goes to the reducer
-  // filter based off of the item
+  this.state.ingredientList.pop(item)
   this.props.deleteIngredient(item)
-  if (this.state.ingredientList) {
-    const newArray = this.state.ingredientList.filter((item) => {
-      console.log(item);
-    })
-  }
 }
 
-
 submit() {
-  console.log('submit fridge');
-  this.props.fetchIngredientRecipes(this.state.ingredientList)
+  const ingredients = this.state.ingredientList.map((ingredient) => {
+    return ingredient
+  })
+  console.log(this.state.ingredientList);
+  this.props.fetchIngredientRecipes(ingredients)
+  document.querySelector('.prompt').innerText = 'Whatcha going to make?'
+}
+
+fridgeResults(e) {
+  console.log('e', e);
+  this.props.history.push(`/fridge-results/${e.target.value}`)
 }
 
   render () {
-console.log('fridge props', this.props);
+    console.log('fridge props', this.props);
+
+
+    const title = this.props.fridgeIngredients.map((ingredient, index) => {
+      return <button key={index}
+                     className="fridge-results"
+                     value={ingredient.id}
+                     onClick={(e) => this.fridgeResults(e)}>{ingredient.title}</button>
+    })
+
     return (
       <section>
         <h2>Add ingredients you'd like you use below</h2>
@@ -53,10 +62,13 @@ console.log('fridge props', this.props);
           <button className="delete-btn" onClick={(e) => this.delete(item)}>X</button></li>)}</div>
         </section>
         <button className="submit" onClick={() => this.submit()}>Fetch Meals</button>
+        <section className="fridge-results-container">
+          <div className="prompt"></div>
+          {title}
+        </section>
       </section>
     )
   }
 }
-
 
 export default Fridge

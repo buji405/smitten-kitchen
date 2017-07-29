@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { recipeFetchData } from '../../actions';
+
 
 class RecipeList extends Component {
   constructor () {
@@ -11,6 +11,7 @@ class RecipeList extends Component {
 
   getDirections(e) {
     console.log('works');
+    console.log('eee', e);
     this.props.history.push(`/directions/${e.target.value}`)
   }
 
