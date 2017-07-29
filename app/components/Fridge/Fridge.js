@@ -32,13 +32,20 @@ submit() {
   document.querySelector('.prompt').innerText = 'Whatcha going to make?'
 }
 
+fridgeResults(e) {
+  console.log('e', e);
+  this.props.history.push(`/fridge-results/${e.target.value}`)
+}
+
   render () {
     console.log('fridge props', this.props);
 
 
     const title = this.props.fridgeIngredients.map((ingredient, index) => {
       return <button key={index}
-                     className="fridge-results">{ingredient.title}</button>
+                     className="fridge-results"
+                     value={ingredient.id}
+                     onClick={(e) => this.fridgeResults(e)}>{ingredient.title}</button>
     })
 
     return (
