@@ -40,7 +40,6 @@ fridgeResults(e) {
   render () {
     console.log('fridge props', this.props);
 
-
     const title = this.props.fridgeIngredients.map((ingredient, index) => {
       return <button key={index}
                      className="fridge-results"
