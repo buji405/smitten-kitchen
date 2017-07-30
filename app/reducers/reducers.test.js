@@ -9,35 +9,98 @@ describe('items reducer', () => {
   it('should return an array of items', () => {
     const actionItems = {
       type: 'ITEMS_FETCH_DATA_SUCCESS',
-        recipes: {
-          results: [
-            {id: '1'},
-            {id: '2'}
-          ]
-        }
+        recipes: [
+            {title: 'Black Bean Soup', id: '1'},
+            {title: 'Tortilla Soup', id: '2'}
+        ]
     }
     const state  = []
 
     expect(reducers.items(state, actionItems)).toEqual([
-      {id: '1'},
-      {id: '2'}
+      {title: 'Black Bean Soup', id: '1'},
+      {title: 'Tortilla Soup', id: '2'}
     ])
-
   })
+})
 
+describe('isLoading reducer', () => {
+  it('should default state to false', () => {
+    const initialAction = { type: 'init'}
+
+    expect(reducers.isLoading(undefined, initialAction)).toEqual(false)
+  })
+  it('should return true if it is loading', () => {
+    const actionLoading = {
+      type: 'LOADING',
+      isLoading: true
+    }
+    const state = false;
+
+    expect(reducers.isLoading(state, actionLoading)).toEqual(true)
+  })
+})
+
+describe('directions reducer', () => {
+  it('should return the recipe directions on instructions', () => {
+     const directions = {
+       type: 'INSTRUCTIONS',
+       array: 'preheat oven to 450 degrees'
+     }
+     expect(reducers.directions('', directions)).toEqual('preheat oven to 450 degrees')
+  })
+})
+
+describe('displayIngredient reducer', () => {
+  it('state should start as an empty array', () => {
+    const initialAction =  {type: 'init' }
+
+    expect(reducers.displayIngredients(undefined, initialAction)).toEqual([])
+  })
+  it('should return an array of ingredients', () => {
+    const displayIngredientAction = {
+      type: 'FRIDGE_INGREDIENTS',
+      ingredient: 'eggs'
+    }
+
+    expect(reducers.displayIngredients([], displayIngredientAction)).toEqual(['eggs'])
+  })
+})
+
+describe('recipeIngredient reducer', () => {
+  it('should start as an empty array', () => {
+    const initialAction =  {type: 'init' }
+
+    expect(reducers.recipeIngredient(undefined, initialAction)).toEqual([])
+  })
+  it('should return the ingredient amounts', () => {
+    const showIngredientAmt = {
+      type: 'RECIPE_INGREDIENTS',
+      ingredientAmt: '1/2 cup sugar'
+    }
+
+    expect(reducers.recipeIngredient([], showIngredientAmt)).toEqual('1/2 cup sugar')
+  })
+})
+
+
+describe('searchFridgeIngredients', () => {
+  it('should start as an empty array', () => {
+    const initialAction =  {type: 'init' }
+
+    expect(reducers.recipeIngredient(undefined, initialAction)).toEqual([])
+  })
+  it('should return ingredients for the ingredient search', () => {
+    const searchIngredients =  {
+      type: 'SEARCH_FRIDGE',
+      ingredients: 'salsa'
+    }
+    expect(reducers.searchFridgeIngredients([], searchIngredients)).toEqual('salsa')
+  })
 })
 
 
 
-// const actionItems = {
-//       type: 'ITEMS_FETCH_DATA_SUCCESS',
-//       items: {
-//         results: [
-//         {id: '1'},
-//         {id: '2'}
-//       ]}
-//     }
-//     const state = []
+// const state = []
 //
 //     expect(reducers.items(state, actionItems)).toEqual([
 //       {id: '1',
@@ -45,7 +108,42 @@ describe('items reducer', () => {
 //       {id: '2',
 //       movie_id: '2'}
 //     ])
+// it('should return array of items with movie_id', () => {
+//     const actionItems = {
+//       type: 'ITEMS_FETCH_DATA_SUCCESS',
+//       items: {
+//         results: [
+//         {id: '1'},
+//         {id: '2'}
+//       ]}
+//     }
 
+// it('should default state to empty array', () => {
+//     const initialAction = { type: 'init' }
+//
+//     expect(reducers.items(undefined, initialAction)).toEqual([])
+//   })
+//
+
+
+
+// it('should return a user on success', () => {
+//     const userAction = {
+//       type: 'USERS_FETCH_DATA_SUCCESS',
+//       user: 'Bill Brasky'
+//     }
+//
+//     expect(reducers.users({}, userAction)).toEqual('Bill Brasky')
+//   })
+//
+//   it('should return state on user login', () => {
+//     const userAction = {
+//       type: 'USER_LOGIN',
+//     }
+//
+//     expect(reducers.users({}, userAction)).toEqual({})
+//   })
+//
 
 
 // import * as reducers from './items.js';
