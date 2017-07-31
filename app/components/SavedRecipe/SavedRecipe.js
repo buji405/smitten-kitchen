@@ -11,7 +11,7 @@ class SavedRecipe extends Component {
       return <button className="recipe-title" key={index} value={recipe.id}>{recipe.title}</button>
     })
     return (
-     <div onClick={(e) => this.getRecipe(e)}>{title}</div>
+        <div className="recipe-list" onClick={(e) => this.getRecipe(e)}>{title}</div>
     )
   }
 }
