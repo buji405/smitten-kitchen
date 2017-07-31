@@ -12,13 +12,15 @@ const Navbar = () => {
       <div className="line-break"></div>
       <div className="nav-container">
         <NavLink to='/'
-                  activeClassName='selected'
-                  className='nav-links'>Search</NavLink>
+                 activeClassName='selected'
+                 className='nav-links'>Search</NavLink>
         <NavLink to='/fridge'
-                  activeClassName='selected'
-                  className="nav-links"
-                  >Whats in my fridge?</NavLink>
-        <button>Saved Recipes</button>
+                 activeClassName='selected'
+                 className="nav-links"
+                 >Whats in my fridge?</NavLink>
+        <NavLink to="/saved"
+                 activeClassName="selected"
+                 className="nav-links">Saved Recipes</NavLink>
         <NavLink to='/about'
                  activeClassName='selected'
                  className='nav-links'>About</NavLink>

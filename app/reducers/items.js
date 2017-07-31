@@ -60,3 +60,12 @@ export const searchFridgeIngredients = (state=[], action) => {
   return state
   }
 }
+
+export const save = (state = [], action) => {
+  switch(action.type) {
+    case 'ADD_SAVE':
+        return [...state, action.saved]
+  default:
+    return state
+ }
+}

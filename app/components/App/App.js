@@ -9,6 +9,8 @@ import recipeContainer from '../../containers/recipe-container'
 import About from '../../components/About/About'
 import fridgeContainer from '../../containers/fridge-container'
 import fridgeRecipeContainer from '../../containers/fridge-recipe-container'
+import savedRecipeContainer from '../../containers/saved-container'
+import savedResultsContainer from '../../containers/save-results-container'
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 
@@ -31,6 +33,8 @@ class App extends Component {
             <Route path="/directions/:id" component={recipeContainer} />
             <Route path="/fridge" component={fridgeContainer} />
             <Route path="/fridge-results/:id" component={fridgeRecipeContainer} />
+            <Route path="/saved-results/:id" component={savedResultsContainer} />
+            <Route path="/saved" component={savedRecipeContainer} />
             <Route path="/about" component={About} />
           </section>
         </Router>
