@@ -63,4 +63,12 @@ describe('action', () => {
     expect(action.type).toEqual('RECIPE_INGREDIENTS')
   })
 
+  it('should save recipes', () => {
+    const title = 'green bean casserole'
+    const action = actions.saveRecipe(title)
+
+    expect(action.saved).toEqual('green bean casserole')
+    expect(action.type).toEqual('ADD_SAVE')
+  })
+
 })

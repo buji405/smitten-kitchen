@@ -12,7 +12,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-
 const mapDispatchToProps = (dispatch) => {
   return {
     getDirections: (url) => dispatch(getInstructions(url)),
