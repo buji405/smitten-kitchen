@@ -1,21 +1,12 @@
 import React, {Component} from 'react'
 
 class FridgeRecipe extends Component {
-   constructor() {
-     super()
-     this.state={
-
-     }
-   }
-
    componentDidMount() {
      const {id} = this.props.match.params
      this.props.getDirections(id)
    }
 
   render () {
-
-
    const { fridgeIngredients, match: {params: { id } } } = this.props;
    const fridge = fridgeIngredients.find(rec => rec.id === parseInt(id));
    const instructions = this.props.instructions.split('.').map((sentence, index) => {
@@ -25,8 +16,7 @@ class FridgeRecipe extends Component {
  const ingredients = this.props.ingredients.map((amount, index) => {
    return <li className="ingredient-amount" key={index}>{amount}</li>
  })
-   console.log(fridge);
-   console.log('props in fridgerator', this.props);
+
     return (
       <section>
         <div className="top-section">

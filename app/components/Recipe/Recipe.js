@@ -19,13 +19,10 @@ class Recipe extends Component{
   }
 
   save(recipe) {
-    console.log('here');
-
     this.props.savedRecipe(recipe)
   }
 
   render () {
-    console.log('props in recipe',this.props);
     const { recipes, match: {params: { id } } } = this.props;
     const recipe = recipes.find(rec => rec.id === parseInt(id));
     const instructions = this.props.instructions.split('.').map((sentence, index) => {

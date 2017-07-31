@@ -62,7 +62,6 @@ export const saveRecipe = (saved) => {
   }
 
 export const recipeFetchData = (string) => {
-  console.log('string', string);
   return (dispatch) => {
     dispatch(loading(true))
 
@@ -125,7 +124,6 @@ export const fridgeIngredientResults = (ingredients) => {
     })
       .then((response) => response.json())
       .then((fridgeData) => {
-        console.log('fridge data', fridgeData);
         dispatch(searchFridge(fridgeData))
       })
       .catch((error) => {

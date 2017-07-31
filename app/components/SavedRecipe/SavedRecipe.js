@@ -1,9 +1,7 @@
 import React, {Component} from 'react'
 
 class SavedRecipe extends Component {
-
   getRecipe(e) {
-    console.log('im here!');
     this.props.history.push(`/saved-results/${e.target.value}`)
   }
 

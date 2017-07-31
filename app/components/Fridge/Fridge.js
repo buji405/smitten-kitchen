@@ -10,7 +10,6 @@ class Fridge extends Component {
   }
 
 addIngredient() {
-  console.log('this on?');
   let newIngredientList = [...this.state.ingredientList, this.state.ingredientInput]
   this.props.displayIngredients(this.state.ingredientInput)
   this.setState({ingredientList: newIngredientList,
@@ -27,19 +26,15 @@ submit() {
   const ingredients = this.state.ingredientList.map((ingredient) => {
     return ingredient
   })
-  console.log(this.state.ingredientList);
   this.props.fetchIngredientRecipes(ingredients)
   document.querySelector('.prompt').innerText = 'Whatcha going to make?'
 }
 
 fridgeResults(e) {
-  console.log('e', e);
   this.props.history.push(`/fridge-results/${e.target.value}`)
 }
 
   render () {
-    console.log('fridge props', this.props);
-
     const title = this.props.fridgeIngredients.map((ingredient, index) => {
       return <button key={index}
                      className="fridge-results"
