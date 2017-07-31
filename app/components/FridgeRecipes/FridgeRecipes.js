@@ -6,6 +6,10 @@ class FridgeRecipe extends Component {
      this.props.getDirections(id)
    }
 
+   print() {
+     window.print()
+   }
+
   render () {
    const { fridgeIngredients, match: {params: { id } } } = this.props;
    const fridge = fridgeIngredients.find(rec => rec.id === parseInt(id));
@@ -25,7 +29,7 @@ class FridgeRecipe extends Component {
               <img className="dish-pic" src={`https://spoonacular.com/recipeImages/${id}-312x231.jpg`} />
           </div>
           <div className="right-container">
-            <button className="print-btn" >Print</button>
+            <button className="print-btn" onClick={() => this.print()} >Print</button>
             <button className="save-btn">Save</button>
           </div>
         </div>
