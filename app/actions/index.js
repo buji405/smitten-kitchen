@@ -54,6 +54,13 @@ export const deleteIngredient = (item) => {
   }
 }
 
+export const saveRecipe = (saved) => {
+    return {
+      type: 'ADD_SAVE',
+      saved
+    }
+  }
+
 export const recipeFetchData = (string) => {
   console.log('string', string);
   return (dispatch) => {

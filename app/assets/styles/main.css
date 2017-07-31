@@ -51,7 +51,6 @@ body {
 }
 
 .nav-container {
-  width: 90%;
   padding: 30px;
 }
 
@@ -227,6 +226,17 @@ transition-duration: .2s;
   color: #fff;
   font-size: 15px;
   outline: none;
+}
+
+.delete-button {
+  height: 40px;
+  width: 100px;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  background-color: #ea2304;
 }
 
 .print-btn {

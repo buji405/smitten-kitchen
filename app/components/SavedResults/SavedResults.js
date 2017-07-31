@@ -1,30 +1,8 @@
 import React, {Component} from 'react'
 
-class Recipe extends Component{
-   constructor() {
-     super()
-     this.state={
-       instructions: '',
-       ingredients: ''
-     }
-   }
+class SavedResults extends Component {
 
-  print() {
-    window.print()
-  }
-
-  componentDidMount() {
-    const {id} = this.props.match.params
-    this.props.getDirections(id)
-  }
-
-  save(recipe) {
-    console.log('here');
-
-    this.props.savedRecipe(recipe)
-  }
-
-  render () {
+  render() {
     console.log('props in recipe',this.props);
     const { recipes, match: {params: { id } } } = this.props;
     const recipe = recipes.find(rec => rec.id === parseInt(id));
@@ -45,7 +23,7 @@ class Recipe extends Component{
           </div>
           <div className="right-container">
             <button className="print-btn" onClick={() => this.print()}>Print</button>
-            <button className="save-btn" onClick={() => this.save(recipe)}>Save</button>
+            <button className="delete-button" onClick={() => this.delete(recipe)}>Remove</button>
           </div>
         </div>
         <section className="direction-section">
@@ -57,6 +35,6 @@ class Recipe extends Component{
       </section>
     )
   }
- }
+}
 
-export default Recipe;
+export default SavedResults
