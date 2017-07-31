@@ -2,11 +2,10 @@ import React, {Component} from 'react'
 
 class SavedResults extends Component {
 
-
  print() {
    window.print()
  }
- 
+
   render() {
     const { recipes, match: {params: { id } } } = this.props;
     const recipe = recipes.find(rec => rec.id === parseInt(id));

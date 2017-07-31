@@ -10,7 +10,13 @@ class FridgeRecipe extends Component {
      window.print()
    }
 
+   save(fridge) {
+     console.log('in fridge');
+     this.props.savedRecipe(fridge)
+   }
+
   render () {
+     console.log('fridge props', this.props);
    const { fridgeIngredients, match: {params: { id } } } = this.props;
    const fridge = fridgeIngredients.find(rec => rec.id === parseInt(id));
    const instructions = this.props.instructions.split('.').map((sentence, index) => {
@@ -30,7 +36,7 @@ class FridgeRecipe extends Component {
           </div>
           <div className="right-container">
             <button className="print-btn" onClick={() => this.print()} >Print</button>
-            <button className="save-btn">Save</button>
+            <button className="save-btn" onClick={() => this.save(fridge)}>Save</button>
           </div>
         </div>
         <section className="direction-section">
