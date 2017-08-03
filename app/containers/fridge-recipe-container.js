@@ -2,7 +2,6 @@ import { connect } from 'react-redux'
 import FridgeRecipe from '../components/FridgeRecipes/FridgeRecipes'
 import { getInstructions, saveRecipe } from '../actions';
 
-
 const mapStateToProps = (state) => {
   return {
     instructions: state.directions,
@@ -18,6 +17,5 @@ const mapDispatchToProps = (dispatch) => {
     savedRecipe: (saved) => dispatch(saveRecipe(saved))
   }
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(FridgeRecipe)
