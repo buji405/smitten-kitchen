@@ -5,9 +5,6 @@ import RecipeDetails from '../RecipeDetails.js'
 
 class SavedResults extends Component {
 
-delete() {
-  console.log('cool');
-}
   render() {
    console.log('props', this.props);
     const { recipes, match: {params: { id } } } = this.props;

@@ -61,9 +61,7 @@ export const save = (state = [], action) => {
     case 'ADD_SAVE':
     return [...state, action.saved]
     case 'DELETE_SAVED':
-    return state.filter((savedRecipe)=> {
-      return savedRecipe !== action.savedRecipe
-    })
+    return state.filter((savedRecipe)=> savedRecipe !== action.savedRecipe)
   default:
     return state
  }

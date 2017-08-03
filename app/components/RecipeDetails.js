@@ -1,10 +1,4 @@
-
-  // if you don't have a thing you can just return null instead and react is
-  // kewl with that.
-
-  // you might need to figure out if that particular prop exists ( action, rea  dyInYungMinutes), if it does return that prop
-  // if it doesn't exist just return null
-  import React, {Component} from 'react'
+import React, {Component} from 'react'
 
   const RecipeDetails = ({ print, action, fetch, recipe, recipes, ingredients, save, remove, directions, title, minutes, id}) => {
   const mins = minutes ? <p className="mins">Ready in {minutes} minutes</p> : null
