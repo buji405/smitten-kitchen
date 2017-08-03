@@ -61,6 +61,13 @@ export const saveRecipe = (saved) => {
     }
   }
 
+export const deleteSaved = (savedRecipe) => {
+  return {
+    type: 'DELETE_SAVED',
+    savedRecipe
+  }
+}
+
 export const recipeFetchData = (string) => {
   return (dispatch) => {
     dispatch(loading(true))

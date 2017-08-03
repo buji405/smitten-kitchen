@@ -60,6 +60,8 @@ export const save = (state = [], action) => {
   switch(action.type) {
     case 'ADD_SAVE':
     return [...state, action.saved]
+    case 'DELETE_SAVED':
+    return state.filter((savedRecipe)=> savedRecipe !== action.savedRecipe)
   default:
     return state
  }

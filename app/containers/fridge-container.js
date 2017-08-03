@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Fridge from '../components/Fridge/Fridge'
-import {ingredients, searchFridge, deleteIngredient, fridgeIngredientResults} from '../actions'
+import {ingredients, searchFridge, deleteIngredient, saveRecipe, fridgeIngredientResults} from '../actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -14,6 +14,7 @@ const mapDispatchToProps = (dispatch) => {
     deleteIngredient: (item) => dispatch(deleteIngredient(item)),
     displayIngredients: (item) => dispatch(ingredients(item)),
     fetchIngredientRecipes: (ingredientList) => dispatch(fridgeIngredientResults(ingredientList)),
+    savedRecipe: (saved) => dispatch(saveRecipe(saved))
   }
 }
 
